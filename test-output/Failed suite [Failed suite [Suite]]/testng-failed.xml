@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [Suite]]]" parallel="methods">
+  <test thread-count="5" name="Suite2(failed)(failed)(failed)" parallel="methods">
+    <classes>
+      <class name="script.Sla">
+        <methods>
+          <include name="prntlist"/>
+          <include name="openApp"/>
+          <include name="dashboardtest"/>
+          <include name="closeApp"/>
+        </methods>
+      </class> <!-- script.Sla -->
+    </classes>
+  </test> <!-- Suite2(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Suite]]] -->
