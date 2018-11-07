@@ -34,13 +34,20 @@ public class TripSolution extends BaseTest
 	{
 		TripSolutionPage t2=new TripSolutionPage(BaseTest.driver);
 		t2.setstartdate();
-		t2.settenddate();
+		//t2.settenddate();
 	}
 	@Test(priority=4)
 	public void viewbtntest()
 	{
 		TripSolutionPage t4=new TripSolutionPage(BaseTest.driver);
 		t4.clickview();
+		
+	}
+	@Test(priority=5)
+	public void exclbtntest()
+	{
+		TripSolutionPage t5=new TripSolutionPage(BaseTest.driver);
+		t5.exporttoexcel();
 		
 	}
 }

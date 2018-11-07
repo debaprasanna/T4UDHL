@@ -1,5 +1,6 @@
 package page;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,8 +22,10 @@ public class TripSolutionPage
 	private WebElement strtdate;
 	@FindBy(xpath="//input[@id='inputdateInput2']")
 	private WebElement enddate;
-	@FindBy(xpath="//button[@id='viewId']")
+	@FindBy(id="viewId")
 	private WebElement viewbtttn;
+	@FindBy(xpath="//span[.='Export to Excel']")
+	private WebElement exclbtn;
 	
 	public TripSolutionPage(WebDriver driver) 
 	{
@@ -41,30 +44,38 @@ public class TripSolutionPage
 	{ 
 		//driver.navigate().refresh();
 		
-		WebDriverWait wait=new WebDriverWait(driver, 40);
-		wait.until(ExpectedConditions.visibilityOf(strtdate));
+//		WebDriverWait wait=new WebDriverWait(driver, 40);
+//		wait.until(ExpectedConditions.visibilityOf(strtdate));
 		
 		strtdate.sendKeys(Keys.HOME);	
 
-		strtdate.sendKeys("2102018");
-		strtdate.sendKeys(Keys.TAB);
+		strtdate.sendKeys("28102018");
+		
+		//strtdate.sendKeys(Keys.TAB);
 		
 		
 	}
 
-	public void settenddate() 
-	{
-		WebDriverWait wait=new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.visibilityOf(enddate));
-		enddate.sendKeys(Keys.HOME);
-		enddate.sendKeys("24102018");
-		
-	}
+//	public void settenddate() 
+//	{
+//		WebDriverWait wait=new WebDriverWait(driver, 20);
+//		wait.until(ExpectedConditions.visibilityOf(enddate));
+//		enddate.sendKeys(Keys.HOME);
+//		enddate.sendKeys("24102018");
+//		
+//	}
 	public void clickview() 
 	{
-		viewbtttn.click();
+		//viewbtttn.click();
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", viewbtttn);//i use javascript executor 
+		//as the view button is not clickable
 	}
+	public void exporttoexcel() 
+	{
+		exclbtn.click();
+		
 	}
+}
 	
 	
 

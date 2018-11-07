@@ -1,5 +1,9 @@
 package page;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.Keys;
@@ -165,8 +169,14 @@ public class ActionPage
 	}
 	public void setrouteid() 
 	{
+		Date date = Calendar.getInstance().getTime();
+        DateFormat formatter = new SimpleDateFormat("hhssddMMyyyy");
+        String today = formatter.format(date);
+        System.out.println(today);
+		
+        String routeId = "chenai_kerala_INDIANM"+today;
 		routid.click();
-		routid.sendKeys("chenai_kerala_INDIANJ");
+		routid.sendKeys(routeId);
 	}
 	public void clicksavebutton() 
 	{
